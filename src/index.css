@@ -1,0 +1,14 @@
+/* base styles */
+body {
+  font-family: 'FF Hekaya';
+  font-style: normal;
+  margin: 0;
+  font-size: 1.5em;
+  text-align: center;
+
+  background: #ffffff;
+  color: rgb(0, 0, 0);
+}
+
+/*     background: #1b1523; */
+/* font-family: Raleway, sans-serif; */
