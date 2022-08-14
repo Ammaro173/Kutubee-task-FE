@@ -1,0 +1,116 @@
+.App {
+	max-width: 860px;
+	margin: 40px auto;
+}
+
+button {
+	background: none;
+	border: none;
+	padding: 6px 12px;
+	font-weight: bold;
+	cursor: pointer;
+	font-size: 1em;
+}
+
+#back {
+	position: absolute;
+	left: 3.75%;
+	right: 95%;
+	top: 6.33%;
+	bottom: 91.67%;
+}
+
+
+.cards-grid {
+	margin: auto;
+	margin-top: 100px;
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr 1fr;
+	grid-gap: 20px;
+	border: 10px sold rgb(0, 0, 0);
+	border-radius: 10px;
+}
+
+/* Style the list */
+/* ul.breadcrumb {
+	padding: 10px 16px;
+	list-style: none;
+  
+  
+  } */
+
+/* Display list items side by side */
+/* ul.breadcrumb li {
+	display: inline;
+	font-size: 18px;
+  } */
+
+/* Add a slash symbol (/) before/behind each list item */
+/* ul.breadcrumb li+li:before {
+	padding: 8px;
+	color: #FFD217;
+	content: "━━";
+  } */
+
+/* Add a color to all links inside the list */
+/* ul.breadcrumb li a {
+	color: #0275d8;
+	text-decoration: none;
+	width: 100px;
+	height: 100px;
+	border-radius: 50%;
+	align-items: center;
+	text-align: center;
+  
+  } */
+
+/* Add a color on mouse-over */
+/* ul.breadcrumb li a:hover {
+	color: #01447e;
+	text-decoration: underline;
+  } */
+
+ul {
+	margin-top: 48
+}
+
+li {
+	width: 2em;
+	height: 2em;
+	text-align: center;
+	line-height: 2em;
+	border-radius: 1em;
+	background: dodgerblue;
+	margin: 0 1em;
+	display: inline-block;
+	color: rgb(0, 0, 0);
+	position: relative;
+}
+
+li::before {
+	content: '';
+	position: absolute;
+	top: .9em;
+	left: -4em;
+	width: 4em;
+	height: .2em;
+	background: dodgerblue;
+	z-index: -1;
+}
+
+
+li:first-child::before {
+	display: none;
+}
+
+.active {
+	background: rgb(158, 99, 32);
+}
+
+.active~li {
+	background: lightblue;
+}
+
+.active~li::before {
+	background: lightblue;
+}
