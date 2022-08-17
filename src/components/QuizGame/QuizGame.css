@@ -1,0 +1,253 @@
+@font-face {
+    font-family: "FF Hekaya Light";
+    src: url("//db.onlinewebfonts.com/t/5973df73839accca72bfd147b3cf95bc.eot");
+    src: url("//db.onlinewebfonts.com/t/5973df73839accca72bfd147b3cf95bc.eot?#iefix") format("embedded-opentype"), url("//db.onlinewebfonts.com/t/5973df73839accca72bfd147b3cf95bc.woff2") format("woff2"), url("//db.onlinewebfonts.com/t/5973df73839accca72bfd147b3cf95bc.woff") format("woff"), url("//db.onlinewebfonts.com/t/5973df73839accca72bfd147b3cf95bc.ttf") format("truetype"), url("//db.onlinewebfonts.com/t/5973df73839accca72bfd147b3cf95bc.svg#FF Hekaya Light") format("svg");
+}
+
+.question-card {
+    /* Center the div  */
+    margin: 0 auto;
+
+
+
+    width: 80%;
+    height: auto;
+
+    /* Visual  */
+    /* background-color: gray; */
+    padding: 16px;
+    border-radius: 16px;
+
+    /* box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px,
+        rgba(0, 0, 0, 0.3) 0px 18px 36px -18px; */
+
+
+}
+
+
+
+/* .QuizGame ol>li {
+    text-align: left;
+    margin-top: 8px;
+    padding: 16px;
+    border: 2px solid #E5E5E5;
+    box-shadow: 0px 0px 10px 2px rgba(37, 39, 38, 0.047476);
+    border-radius: 8px;
+    font-size: 20px;
+    cursor: pointer;
+    color: #6A6A6D;
+    font-family: 'FF Hekaya Light';
+    font-style: normal;
+    font-weight: 300;
+    font-size: 36px;
+    identical to box height, or 56%
+    line-height: 27px;
+} */
+
+/* .QuizGame ol>li {
+    border: 2px solid #6AC3DB;
+    box-shadow: 0px 0px 10px 2px rgba(37, 39, 38, 0.047476);
+} */
+
+/* .QuizGame li~.active {
+    border: 3px solid #6AC3DB;
+    box-shadow: 0px 0px 10px 2px rgba(37, 39, 38, 0.047476);
+} */
+
+
+/* Final Results  */
+
+.final-results {
+    /* Center the div  */
+    margin: 0 auto;
+
+    /* Dimensions  */
+    width: 50%;
+    /* Can be in percentage also. */
+    height: auto;
+    margin-top: 64px;
+
+    /* Visual  */
+    background-color: gray;
+    padding: 16px;
+    border-radius: 16px;
+    color: black;
+    /* box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px,
+        rgba(0, 0, 0, 0.3) 0px 18px 36px -18px; */
+}
+
+/* .QuizGame button {
+    background-color: red;
+    Green
+    border: none;
+    color: white;
+    padding: 16px 24px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    font-weight: bold;
+
+    border-radius: 24px;
+} */
+
+#audio {
+    background: none;
+    border: none;
+    padding: 6px 12px;
+    font-weight: bold;
+    cursor: pointer;
+    font-size: 1em;
+    border: none;
+    position: absolute;
+    left: 81.94%;
+    right: 14.44%;
+    top: 7.22%;
+    bottom: 87%;
+}
+
+#question {
+    margin: 0 auto;
+    width: 80%;
+    font-family: 'FF Hekaya Light';
+    text-align: left;
+    font-style: normal;
+    font-weight: 300;
+    font-size: 48px;
+    line-height: 42px;
+    /* or 88% */
+    color: #000000;
+
+}
+
+#check {
+    width: 335px;
+    height: 60px;
+    background: #6AC3DB;
+    border-radius: 30px;
+    border: none;
+    color: #ffffff;
+    font-family: 'FF Hekaya Light';
+    font-style: normal;
+    font-weight: 300;
+    font-size: 36px;
+    cursor: pointer;
+}
+
+#notCheck {
+    width: 335px;
+    height: 60px;
+    background: #E5E5E5;
+    border-radius: 30px;
+    border: none;
+    color: #ffffff;
+    font-family: 'FF Hekaya Light';
+    font-style: normal;
+    font-weight: 300;
+    font-size: 36px;
+    cursor: pointer;
+}
+
+.correct {
+    width: 100%;
+    border: 3px solid #86CF0E;
+    /* box-shadow: 0px 0px 10px 2px rgba(37, 39, 38, 0.047476); */
+    text-align: left;
+    margin-top: 8px;
+    padding: 16px;
+    border-radius: 8px;
+    font-size: 20px;
+    cursor: pointer;
+    color: #86CF0E;
+    font-family: 'FF Hekaya Light';
+    font-style: normal;
+    font-weight: 300;
+    font-size: 36px;
+    /* identical to box height, or 56% */
+    line-height: 27px;
+}
+
+
+
+.incorrect {
+    width: 100%;
+    border: 3px solid #6A6A6D;
+    /* box-shadow: 0px 0px 10px 2px rgba(37, 39, 38, 0.047476); */
+    text-align: left;
+    margin-top: 8px;
+    padding: 16px;
+    border-radius: 8px;
+    cursor: pointer;
+    color: #6A6A6D;
+    font-family: 'FF Hekaya Light';
+    font-style: normal;
+    font-weight: 300;
+    font-size: 36px;
+    /* identical to box height, or 56% */
+    line-height: 27px;
+}
+
+.incorrect:hover {
+    border: 3px solid #6AC3DB;
+    color: #6AC3DB;
+}
+
+.incorrect:focus {
+    border: 3px solid #4c056d;
+    color: #4c056d;
+}
+
+.correctLi {
+    width: 100%;
+    /* border: 3px solid #86CF0E; */
+    /* box-shadow: 0px 0px 10px 2px rgba(37, 39, 38, 0.047476); */
+    text-align: left;
+    margin-top: 8px;
+    padding: 16px;
+    border-radius: 8px;
+    font-size: 20px;
+    cursor: pointer;
+    color: #86CF0E;
+    font-family: 'FF Hekaya Light';
+    font-style: normal;
+    font-weight: 300;
+    font-size: 36px;
+    /* identical to box height, or 56% */
+    line-height: 27px;
+}
+
+.incorrectLi {
+    width: 100%;
+    /* border: 3px solid #6A6A6D; */
+    /* box-shadow: 0px 0px 10px 2px rgba(37, 39, 38, 0.047476); */
+    text-align: left;
+    margin-top: 8px;
+    padding: 16px;
+    border-radius: 8px;
+    cursor: pointer;
+    color: #6A6A6D;
+    font-family: 'FF Hekaya Light';
+    font-style: normal;
+    font-weight: 300;
+    font-size: 36px;
+    /* identical to box height, or 56% */
+    line-height: 27px;
+}
+
+.incorrectLi:hover {
+    /* border: 3px solid #6AC3DB; */
+    color: #6AC3DB;
+}
+
+.incorrectLi:focus {
+    /* border: 3px solid #4c056d; */
+    color: #4c056d;
+}
+
+
+
+
+.active {
+    border: 3px solid #86CF0E;
+    /* box-shadow: 0px 0px 10px 2px rgba(37, 39, 38, 0.047476); */
+}
