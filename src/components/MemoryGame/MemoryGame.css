@@ -1,9 +1,12 @@
-.App {
+.MemoryGame {
 	max-width: 860px;
 	margin: 40px auto;
+	font-family: 'FF Hekaya Light';
+
+
 }
 
-button {
+.MemoryGame button {
 	background: none;
 	border: none;
 	padding: 6px 12px;
@@ -31,50 +34,17 @@ button {
 	border-radius: 10px;
 }
 
-/* Style the list */
-/* ul.breadcrumb {
-	padding: 10px 16px;
-	list-style: none;
-  
-  
-  } */
+/*  
+/* 
+/* 
+ */
 
-/* Display list items side by side */
-/* ul.breadcrumb li {
-	display: inline;
-	font-size: 18px;
-  } */
 
-/* Add a slash symbol (/) before/behind each list item */
-/* ul.breadcrumb li+li:before {
-	padding: 8px;
-	color: #FFD217;
-	content: "━━";
-  } */
-
-/* Add a color to all links inside the list */
-/* ul.breadcrumb li a {
-	color: #0275d8;
-	text-decoration: none;
-	width: 100px;
-	height: 100px;
-	border-radius: 50%;
-	align-items: center;
-	text-align: center;
-  
-  } */
-
-/* Add a color on mouse-over */
-/* ul.breadcrumb li a:hover {
-	color: #01447e;
-	text-decoration: underline;
-  } */
-
-ul {
+.MemoryGame ul {
 	margin-top: 48
 }
 
-li {
+.MemoryGame li {
 	width: 2em;
 	height: 2em;
 	text-align: center;
@@ -87,7 +57,7 @@ li {
 	position: relative;
 }
 
-li::before {
+.MemoryGame li::before {
 	content: '';
 	position: absolute;
 	top: .9em;
@@ -99,18 +69,18 @@ li::before {
 }
 
 
-li:first-child::before {
+.MemoryGame li:first-child::before {
 	display: none;
 }
 
-.active {
+.MemoryGame .active {
 	background: rgb(158, 99, 32);
 }
 
-.active~li {
+.MemoryGame .active~li {
 	background: lightblue;
 }
 
-.active~li::before {
+.MemoryGame active~li::before {
 	background: lightblue;
 }

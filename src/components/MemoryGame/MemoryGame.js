@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import './MemoryGame.css';
 import SignleCard from './SignleCard.js';
-import axios from 'axios';
+// import axios from 'axios';
 import { useNavigate, Link } from 'react-router-dom';
 
 const cardsImages = [
@@ -18,6 +18,7 @@ function MemoryGame() {
 	// to redirect after all cards are matched
 	const navigate = useNavigate();
 
+	const [data1, setData1] = useState([]);
 	//for game
 	const [cards, setCards] = useState([]);
 	const [turns, setTurns] = useState(0);
@@ -25,6 +26,7 @@ function MemoryGame() {
 	const [choiceTwo, setChoiceTwo] = useState(null);
 	const [disabled, setDisabled] = useState(false);
 	const [allMatched, setAllMatched] = useState(false);
+	const [faded, setFaded] = useState(false);
 
 	//for audio
 	const [playing, setPlaying] = useState(false);
@@ -56,6 +58,7 @@ function MemoryGame() {
 			setDisabled(true);
 			if (choiceOne.src === choiceTwo.src && choiceOne.id !== choiceTwo.id) {
 				console.log('thats a match :)');
+				setFaded(true);
 
 				setCards((prevCards) => {
 					return prevCards.map((card) => {
@@ -112,17 +115,23 @@ function MemoryGame() {
 		shuffle();
 	}, []);
 
-	useEffect(() => {
-		axios
-			.get('http://localhost:8080/memory-games')
-			.then((res) => {
-				console.log('res', res.data);
-			})
-			.catch((err) => {
-				console.log('err', err);
-			});
-	}, []);
+	const fetchData1 = async () => {
+		try {
+			const res = await fetch('http://localhost:8080/MemoryGames');
 
+			const mem_game = await res.json();
+			setData1(mem_game);
+			console.log(data1);
+		} catch (error) {
+			console.log('error', error);
+		}
+	};
+
+	useEffect(() => {
+		fetchData1();
+
+		// eslint-disable-next-line react-hooks/exhaustive-deps
+	}, []);
 	useEffect(() => {
 		if (allMatched) {
 			shuffle();
@@ -133,35 +142,10 @@ function MemoryGame() {
 	}, [allMatched]);
 
 	return (
-		<div className='App'>
+		<div className='MemoryGame'>
 			<Link id='back' to='/'>
 				<img src='/leftArrow.svg' alt='leftArrow' />
 			</Link>
-			{/* <button>{'🡨'}</button> */}
-			{/* <>
-				<h2>Breadcrumb Pagination</h2>
-				<ul class='breadcrumb'>
-					<li>
-						<a href='#'>1</a>
-					</li>
-					<li>
-						<a href='#'>2</a>
-					</li>
-					<li>
-						<a href='#'>3</a>
-					</li>
-					<li>Italy</li>
-				</ul>
-			</> */}
-			<ul>
-				<li>1</li>
-				<li>2</li>
-				<li>3</li>
-				<li className='active'>4</li>
-				<li>5</li>
-				<li>6</li>
-				<li>7</li>
-			</ul>
 
 			<div style={{ marginTop: 48 }}>
 				<img src='/levels.svg' alt='level-bar' />
@@ -171,9 +155,9 @@ function MemoryGame() {
 				<img src='/audio.svg' alt='audio svg' />
 			</button>
 
-			<h5 style={{ marginTop: 9 }}>
+			<h2 style={{ marginTop: 9, textAlign: 'left' }}>
 				Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed laci dollacii met, consectetur ad quam ?
-			</h5>
+			</h2>
 			{/* <button onClick={shuffle}>New Game</button> */}
 
 			<div className='cards-grid'>
@@ -184,11 +168,12 @@ function MemoryGame() {
 						handleChoice={handleChoice}
 						flipped={card === choiceOne || card === choiceTwo || card.matched}
 						disabled={disabled}
+						faded={faded}
+						isMatched={card.matched}
 					/>
 				))}
 			</div>
 			{/* <p>Turns : {turns}</p> */}
-			{/* {allMatched ?? <Navigate replace to='/' />} */}
 		</div>
 	);
 }
