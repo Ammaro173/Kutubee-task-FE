@@ -4,12 +4,13 @@ import SignleCard from './SignleCard.js';
 // import axios from 'axios';
 import { useNavigate, Link } from 'react-router-dom';
 
+const audio = new Audio('https://www.soundhelix.com/examples/mp3/SoundHelix-Song-11.mp3');
 const cardsImages = [
-	{ src: '/img/helmet-1.png', matched: false },
+	// { src: '/img/helmet-1.png', matched: false },
 	{ src: '/img/potion-1.png', matched: false },
 	{ src: '/img/ring-1.png', matched: false },
 	{ src: '/img/scroll-1.png', matched: false },
-	// { src: '/img/shield-1.png', matched: false },
+	{ src: '/img/shield-1.png', matched: false },
 	// { src: '/img/sword-1.png', matched: false },
 	// { src: '/img/elephant(1).jpg', matched: false },
 ];
@@ -27,6 +28,7 @@ function MemoryGame() {
 	const [disabled, setDisabled] = useState(false);
 	const [allMatched, setAllMatched] = useState(false);
 	const [faded, setFaded] = useState(false);
+	const [score, setScore] = useState(0);
 
 	//for audio
 	const [playing, setPlaying] = useState(false);
@@ -42,7 +44,12 @@ function MemoryGame() {
 		setChoiceOne(null);
 		setChoiceTwo(null);
 		setDisabled(false);
+		setAllMatched(false);
 	};
+	// eachtime start a new game automatically & shuffle the cards
+	useEffect(() => {
+		shuffle();
+	}, []);
 
 	// console.log('cards', cards);
 	console.log('turns', turns);
@@ -58,6 +65,7 @@ function MemoryGame() {
 			setDisabled(true);
 			if (choiceOne.src === choiceTwo.src && choiceOne.id !== choiceTwo.id) {
 				console.log('thats a match :)');
+				setScore(score + 1);
 				setFaded(true);
 
 				setCards((prevCards) => {
@@ -70,22 +78,44 @@ function MemoryGame() {
 					});
 				});
 
-				cards.every((card) => {
-					if (card.matched) {
-						setAllMatched(true);
-					}
-				});
 				// console.log('allMatched??', allMatched);
-
-				resetTurn();
+				setTimeout(() => {
+					resetTurn();
+				}, 800);
 			} else {
 				console.log('no match :(');
 				setTimeout(() => {
 					resetTurn();
 				}, 1000);
 			}
+
 			// setTurns(turns + 1);
 		}
+
+		// eslint-disable-next-line array-callback-return
+
+		// check if every card has matched as true
+		// if (cards?.every((card) => card.matched === true)) {
+		// 	setAllMatched(true);
+		// }
+
+		// eslint-disable-next-line  array-callback-return
+		// cards.every((card) => {
+		// 	if (card.matched === true && card.matched !== false) {
+		// 		setAllMatched(true);
+		// 	}
+		// });
+		// cards.every(isAllMatched);
+
+		// function isAllMatched(el, index, arr) {
+		// 	el.matched === true ? setAllMatched(true) : setAllMatched(false);
+		// }
+
+		if (score === cardsImages.length && score !== 0) {
+			setAllMatched(true);
+		}
+
+		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [choiceOne, choiceTwo]);
 
 	console.log('check state new', cards);
@@ -99,7 +129,6 @@ function MemoryGame() {
 	};
 
 	const playAudio = () => {
-		const audio = new Audio('https://www.soundhelix.com/examples/mp3/SoundHelix-Song-11.mp3');
 		if (!playing) {
 			audio.play();
 		}
@@ -110,14 +139,9 @@ function MemoryGame() {
 		setPlaying(true);
 	};
 
-	// eachtime start a new game automatically & shuffle the cards
-	useEffect(() => {
-		shuffle();
-	}, []);
-
 	const fetchData1 = async () => {
 		try {
-			const res = await fetch('http://localhost:8080/MemoryGames');
+			const res = await fetch('https://kutubee-task-be.herokuapp.com/MemoryGames');
 
 			const mem_game = await res.json();
 			setData1(mem_game);
@@ -129,16 +153,24 @@ function MemoryGame() {
 
 	useEffect(() => {
 		fetchData1();
-
 		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, []);
+
 	useEffect(() => {
 		if (allMatched) {
-			shuffle();
-			setAllMatched(false);
-			alert('you win');
-			navigate('/ResultPage');
+			if (turns < 10) {
+				setTimeout(() => {
+					// alert('Game Over Win');
+					navigate('/ResultPage', { state: { passed: true } });
+				}, 1000);
+			} else {
+				setTimeout(() => {
+					// alert('Game Over Lost');
+					navigate('/ResultPage', { state: { passed: false } });
+				}, 1000);
+			}
 		}
+		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [allMatched]);
 
 	return (
