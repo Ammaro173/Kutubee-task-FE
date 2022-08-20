@@ -11,7 +11,7 @@ import QuizGame from './components/QuizGame/QuizGame';
 const PageNotFound = () => (
 	<div>
 		<h1>
-			404! PageNotFound -&gt; <Link to='/'>Home</Link>
+			404! PageNotFound -&gt; <Link to='/'>Go Home</Link>
 		</h1>
 
 		<img src='/sad_bee.svg' alt='sad bee' style={{ marginTop: 100 }} />
@@ -26,7 +26,7 @@ function App() {
 				<Route path='*' element={<PageNotFound />} />
 				<Route path='MemoryGame' element={<MemoryGame />} />
 				<Route path='QuizGame' element={<QuizGame />} />
-				<Route path='ResultPage' element={<ResultPage />} />
+				<Route path='ResultPage' element={<ResultPage state />} />
 			</Routes>
 		</div>
 	);
