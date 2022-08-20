@@ -1,70 +1,47 @@
-# Getting Started with Create React App
+# Front-End Kutubee Task
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Author: Ammar Abul-Feilat
 
-## Available Scripts
+## overview
 
-In the project directory, you can run:
+Making a MemoryGame and a QuizGame using `React` with a Backend `Node.js` and `Express` using `MongoDB` and `Mongoose`. where you can add more questions and games.<https://github.com/Ammaro173/Kutubee-task-BE> check the code on Github.
 
-### `npm start`
+quizGame is a quiz game that asks the user questions and gives them the option to answer the question or not.
+the game is over when the user answers all the questions.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+the memoryGame is a memory game that asks the user to memorize the cards and then flip them back over.
+the game is over when the user solves all the cards.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+## Architecture
 
-### `npm test`
+- ES6 ( ECMAScript 6)
+- "react": "^17.0.2",
+- "react-dom": "^17.0.2",
+- "react-router-dom": "^6.3.0",
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Run the Project
 
-### `npm run build`
+- clone the repo && change directory to the repo
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- run `yarn install` or `npm install`
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- open the browser and navigate to `http://localhost:7777` to change the port you can specify `yarn dev --port <port number>` or go to package.json change the port
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- to run file `npm run start`
 
-### `npm run eject`
+- also check it deployed on netlify by navigating to <https://fabulous-pegasus-ba1293.netlify.app/>
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+### Landing page
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+![landing](./pics/pic1.JPG)
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+### MemoryGame
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+![pic2](./pics/pic2.JPG)
+![pic3](./pics/pic3.JPG)
 
-## Learn More
+### QuizGame
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+![pic4](./pics/pic4.JPG)
+![pic5](./pics/pic5.JPG)
+![pic6](./pics/pic6.JPG)
